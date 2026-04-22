@@ -1,8 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForMIS.Application", "ForMIS.Application\ForMIS.Application.csproj", "{5D8C710B-F206-4620-BE95-DBD45F9B3E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForMIS.Domain", "ForMIS.Domain\ForMIS.Domain.csproj", "{47E56AAE-2796-48D1-BFB8-C75AF70A8E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForMIS.Infrastructure", "ForMIS.Infrastructure\ForMIS.Infrastructure.csproj", "{01836131-5ED4-4E72-A77F-1878632CF7D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D8C710B-F206-4620-BE95-DBD45F9B3E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8C710B-F206-4620-BE95-DBD45F9B3E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8C710B-F206-4620-BE95-DBD45F9B3E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8C710B-F206-4620-BE95-DBD45F9B3E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E56AAE-2796-48D1-BFB8-C75AF70A8E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E56AAE-2796-48D1-BFB8-C75AF70A8E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E56AAE-2796-48D1-BFB8-C75AF70A8E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E56AAE-2796-48D1-BFB8-C75AF70A8E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01836131-5ED4-4E72-A77F-1878632CF7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01836131-5ED4-4E72-A77F-1878632CF7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01836131-5ED4-4E72-A77F-1878632CF7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01836131-5ED4-4E72-A77F-1878632CF7D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
