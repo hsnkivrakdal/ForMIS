@@ -1,0 +1,6 @@
+@ForMIS.FormManagementApi_HostAddress = http://localhost:5117
+
+GET {{ForMIS.FormManagementApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

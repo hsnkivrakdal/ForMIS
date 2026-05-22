@@ -1,0 +1,63 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: formisdatabase
+    environment:
+      MSSQL_SA_PASSWORD: "Hh2026.!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - formis-network
+    
+  formis.universitymanagementapi:
+    image: formis.universitymanagementapi
+    build:
+      context: .
+      dockerfile: ForMIS.UniversityManagementApi/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - formis-network
+
+  formis.formmanagementapi:
+    image: formis.formmanagementapi
+    build:
+      context: .
+      dockerfile: ForMIS.FormManagementApi/Dockerfile
+    ports:
+      - "8081:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - formis-network
+
+  formis.usermanagementapi:
+    image: formis.usermanagementapi
+    build:
+      context: .
+      dockerfile: ForMIS.UserManagementApi/Dockerfile
+    ports:
+      - "8082:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - formis-network
+
+networks:
+  formis-network:
+    driver: bridge
+
+volumes:
+  sqlserver-data:
+    driver: local
