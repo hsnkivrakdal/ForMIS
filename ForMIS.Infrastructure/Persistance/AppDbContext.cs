@@ -20,4 +20,8 @@ public class AppDbContext : DbContext
     public DbSet<Standing> Standings => Set<Standing>();
     public DbSet<University> Universities => Set<University>();
     public DbSet<User> Users => Set<User>();
+    public DbSet<DepartmentMember> DepartmentMembers => Set<DepartmentMember>();
+    public DbSet<Student> Students => Set<Student>();
+    public DbSet<FormReview> FormReviews => Set<FormReview>();
+    public DbSet<FormStatus> FormStatus => Set<FormStatus>();
 }

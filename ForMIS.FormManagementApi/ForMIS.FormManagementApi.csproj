@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ForMIS.Application\ForMIS.Application.csproj" />
       <ProjectReference Include="..\ForMIS.Domain\ForMIS.Domain.csproj" />
       <ProjectReference Include="..\ForMIS.Infrastructure\ForMIS.Infrastructure.csproj" />

@@ -17,6 +17,8 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseService<FormTypeDto,FormType>, FormTypeService>();
         services.AddScoped<IDatabaseService<FormContentDto, FormContent>, FormContentService>();
         services.AddScoped<IDatabaseService<FormContentPrecursorDto, FormContentPrecursor>, FormContentPrecursorService>();
+        services.AddScoped<IDatabaseService<FormReviewDto, FormReview>, FormReviewService>();
+        services.AddScoped<IDatabaseService<FormStatusDto, FormStatus>, FormStatusService>();
     }
 
     public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
@@ -28,5 +30,7 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseRepository<FormType>, FormTypeRepository>();
         services.AddScoped<IDatabaseRepository<FormContent>, FormContentRepository>();
         services.AddScoped<IDatabaseRepository<FormContentPrecursor>, FormContentPrecursorRepository>();
+        services.AddScoped<IDatabaseRepository<FormReview>, FormReviewRepository>();
+        services.AddScoped<IDatabaseRepository<FormStatus>, FormStatusRepository>();
     }   
 }
