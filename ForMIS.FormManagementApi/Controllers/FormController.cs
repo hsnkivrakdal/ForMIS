@@ -1,6 +1,5 @@
 using ForMIS.Application.DTOs;
-using ForMIS.Application.Interfaces;
-using ForMIS.Domain.Entities;
+using ForMIS.Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +9,9 @@ namespace ForMIS.FormManagementApi.Controllers
     [ApiController]
     public class FormController : ControllerBase
     {
-        private readonly IDatabaseService<FormDto, Form> _service;
+        private readonly FormService _service;
 
-        public FormController(IDatabaseService<FormDto, Form> service)
+        public FormController(FormService service)
         {
             _service = service;
         }
@@ -38,12 +37,30 @@ namespace ForMIS.FormManagementApi.Controllers
                 if (id == null)
                     return BadRequest("Id is invalid!");
 
-                var entity = await _service.GetByIdAsync((int)id);
-                
-                if(entity != null)
+                var entity = await _service.GetFormDetailsById((int)id);
+
+                if (entity != null)
                     return Ok(entity);
-                
+
                 return NotFound("Not found!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("by-student/{studentId}")]
+        public async Task<IActionResult> GetByStudentId([FromRoute] int studentId)
+        {
+            try
+            {
+                var result = await _service.GetFormDetailsByStudentId(studentId);
+                if (!result.Any())
+                {
+                    return NotFound("Not found!");
+                }
+                return Ok(result);
             }
             catch (Exception e)
             {
@@ -58,7 +75,7 @@ namespace ForMIS.FormManagementApi.Controllers
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
-                
+
                 await _service.AddAsync(model);
                 return Ok();
             }
@@ -92,7 +109,7 @@ namespace ForMIS.FormManagementApi.Controllers
             {
                 if (id == null)
                     return BadRequest("Id is invalid!");
-                
+
                 var entity = await _service.GetByIdAsync((int)id);
 
                 if (entity != null)
@@ -100,7 +117,7 @@ namespace ForMIS.FormManagementApi.Controllers
                     await _service.DeleteAsync((int)id);
                     return Ok();
                 }
-                
+
                 return NotFound("Not found!");
             }
             catch (Exception e)

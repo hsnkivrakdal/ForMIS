@@ -16,7 +16,7 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseService<UniversityDto, University>, UniversityService>();
         services.AddScoped<IDatabaseService<FacultyDto, Faculty>, FacultyService>();
         services.AddScoped<IDatabaseService<DepartmentMemberDto, DepartmentMember>, DepartmentMemeberService>();
-        services.AddScoped<IDatabaseService<StudentDto, Student>, StudentService>();
+        services.AddScoped<StudentService>();
     }
 
     public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
@@ -27,6 +27,6 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseRepository<University>, UniversityRepository>();
         services.AddScoped<IDatabaseRepository<Faculty>, FacultyRepository>();
         services.AddScoped<IDatabaseRepository<DepartmentMember>, DepartmentMemberRepository>();
-        services.AddScoped<IDatabaseRepository<Student>, StudentRepository>();
+        services.AddScoped<IStudentRepository, StudentRepository>();
     }
 }

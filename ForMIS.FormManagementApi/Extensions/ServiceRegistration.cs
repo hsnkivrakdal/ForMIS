@@ -13,7 +13,7 @@ public static class ServiceRegistration
 {
     public static void AddApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<IDatabaseService<FormDto, Form>, FormService>();
+        services.AddScoped<FormService>();
         services.AddScoped<IDatabaseService<FormTypeDto,FormType>, FormTypeService>();
         services.AddScoped<IDatabaseService<FormContentDto, FormContent>, FormContentService>();
         services.AddScoped<IDatabaseService<FormContentPrecursorDto, FormContentPrecursor>, FormContentPrecursorService>();
@@ -26,7 +26,7 @@ public static class ServiceRegistration
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IDatabaseRepository<Form>, FormRepository>();
+        services.AddScoped<IFormRepository, FormRepository>();
         services.AddScoped<IDatabaseRepository<FormType>, FormTypeRepository>();
         services.AddScoped<IDatabaseRepository<FormContent>, FormContentRepository>();
         services.AddScoped<IDatabaseRepository<FormContentPrecursor>, FormContentPrecursorRepository>();

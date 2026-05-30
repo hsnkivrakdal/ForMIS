@@ -1,6 +1,8 @@
 using ForMIS.Application.DTOs;
 using ForMIS.Application.Interfaces;
+using ForMIS.Application.Services;
 using ForMIS.Domain.Entities;
+using ForMIS.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +12,9 @@ namespace ForMIS.UserManagementApi.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly IDatabaseService<StudentDto, Student> _service;
+        private readonly StudentService _service;
 
-        public StudentController(IDatabaseService<StudentDto, Student> service)
+        public StudentController(StudentService service)
         {
             _service = service;
         }
@@ -44,6 +46,24 @@ namespace ForMIS.UserManagementApi.Controllers
                     return Ok(entity);
                 
                 return NotFound("Not found!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
+        [HttpGet("by-identity/{identityNum}")]
+        public async Task<IActionResult> GetByIdentityNumber([FromRoute] string identityNum)
+        {
+            try
+            {
+               var result = await _service.GetStudentDetailsByIdentityNumber(identityNum);
+               if (result == null)
+               {
+                   return NotFound("Not found!");
+               }
+               return Ok(result);
             }
             catch (Exception e)
             {
