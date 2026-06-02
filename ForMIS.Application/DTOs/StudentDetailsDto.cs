@@ -27,8 +27,8 @@ public class StudentDetailsDto
     public decimal OverallGpa { get; set; }
     public decimal ProgramGpa { get; set; }
     public int NumOfSemesters { get; set; }
-    public string Status { get; set; } = null!;
+    public bool Status { get; set; }
     public string Scholarship { get; set; } = null!;
     public string Address { get; set; } = null!;
-    public byte[] Signature { get; set; } = null!;
+    public byte[]? Signature { get; set; }
 }

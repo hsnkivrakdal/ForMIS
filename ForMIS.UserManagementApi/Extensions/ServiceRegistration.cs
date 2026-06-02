@@ -13,9 +13,9 @@ public static class ServiceRegistration
 {
     public static void AddApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<IDatabaseService<UniversityDto, University>, UniversityService>();
-        services.AddScoped<IDatabaseService<FacultyDto, Faculty>, FacultyService>();
         services.AddScoped<IDatabaseService<DepartmentMemberDto, DepartmentMember>, DepartmentMemeberService>();
+        services.AddScoped<IDatabaseService<StandingDto, Standing>, StandingService>();
+        services.AddScoped<IDatabaseService<UserDto, User>, UserService>();
         services.AddScoped<StudentService>();
     }
 
@@ -24,8 +24,8 @@ public static class ServiceRegistration
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddScoped<IDatabaseRepository<University>, UniversityRepository>();
-        services.AddScoped<IDatabaseRepository<Faculty>, FacultyRepository>();
+        services.AddScoped<IDatabaseRepository<Standing>, StandingRepository>();
+        services.AddScoped<IDatabaseRepository<User>, UserRepository>();
         services.AddScoped<IDatabaseRepository<DepartmentMember>, DepartmentMemberRepository>();
         services.AddScoped<IStudentRepository, StudentRepository>();
     }

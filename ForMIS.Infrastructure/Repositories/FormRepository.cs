@@ -12,9 +12,9 @@ public class FormRepository : IDatabaseBusinessRepository<Form>, IFormRepository
     {
     }
 
-    public async Task<List<FormDetail>> GetFormDetailsByStudentId(int studentId)
+    public async Task<List<FormDetail>> GetFormDetailsByStudentNumber(string studentNumber)
     {
-        var query = BuildFormDetailQuery().Where(f => f.StudentId == studentId);
+        var query = BuildFormDetailQuery().Where(f => f.StudentNumber == studentNumber);
         return await query.ToListAsync();
     }
 

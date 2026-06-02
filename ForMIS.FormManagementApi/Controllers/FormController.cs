@@ -50,12 +50,12 @@ namespace ForMIS.FormManagementApi.Controllers
             }
         }
 
-        [HttpGet("by-student/{studentId}")]
-        public async Task<IActionResult> GetByStudentId([FromRoute] int studentId)
+        [HttpGet("by-student/{studentNumber}")]
+        public async Task<IActionResult> GetByStudentNumber([FromRoute] string studentNumber)
         {
             try
             {
-                var result = await _service.GetFormDetailsByStudentId(studentId);
+                var result = await _service.GetFormDetailsByStudentNumber(studentNumber);
                 if (!result.Any())
                 {
                     return NotFound("Not found!");

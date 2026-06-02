@@ -4,6 +4,6 @@ namespace ForMIS.Domain.Interfaces;
 
 public interface IFormRepository : IDatabaseRepository<Form>
 {
-    Task<List<FormDetail>> GetFormDetailsByStudentId(int studentId);
+    Task<List<FormDetail>> GetFormDetailsByStudentNumber(string studentNumber);
     Task<FormDetail?> GetFormDetailsById(int id);
 }

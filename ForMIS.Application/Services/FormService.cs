@@ -13,9 +13,9 @@ public class FormService : IDatabaseServiceImplementation<FormDto, Form>
         _repository = repository;
     }
 
-    public async Task<List<FormDetailsDto>> GetFormDetailsByStudentId(int studentId)
+    public async Task<List<FormDetailsDto>> GetFormDetailsByStudentNumber(string studentNumber)
     {
-        var list = await _repository.GetFormDetailsByStudentId(studentId);
+        var list = await _repository.GetFormDetailsByStudentNumber(studentNumber);
         return list.Select(Map).ToList();
     }
 
