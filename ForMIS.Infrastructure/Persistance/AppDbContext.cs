@@ -24,4 +24,8 @@ public class AppDbContext : DbContext
     public DbSet<Student> Students => Set<Student>();
     public DbSet<FormReview> FormReviews => Set<FormReview>();
     public DbSet<FormStatus> FormStatus => Set<FormStatus>();
+    public DbSet<FormEkSinav44cDetails> FormEkSinav44cDetails => Set<FormEkSinav44cDetails>();
+    public DbSet<FormEkSinav44cCourses> FormEkSinav44cCourses => Set<FormEkSinav44cCourses>();
+    public DbSet<FormMazeretSinaviFinalDetails> FormMazeretSinaviFinalDetails => Set<FormMazeretSinaviFinalDetails>();
+    public DbSet<FormIlisikKesmeDetails> FormIlisikKesmeDetails => Set<FormIlisikKesmeDetails>();
 }

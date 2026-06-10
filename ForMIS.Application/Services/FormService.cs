@@ -37,7 +37,7 @@ public class FormService : IDatabaseServiceImplementation<FormDto, Form>
         FormStatusId = d.FormStatusId,
         FormStatusName = d.FormStatusName,
         StudentId = d.StudentId,
-        AdvisorId = d.AdvisorId,
+        StudentAdvisor = d.StudentAdvisor,
         StudentNumber = d.StudentNumber,
         StudentName = d.StudentName,
         StudentSurname = d.StudentSurname,
@@ -50,6 +50,9 @@ public class FormService : IDatabaseServiceImplementation<FormDto, Form>
         FormDate = d.FormDate,
         ScholarshipStatus = d.ScholarshipStatus,
         StudentAddress = d.StudentAddress,
-        StudentSignature = d.StudentSignature
+        StudentSignature = d.StudentSignature,
+        Subject = d.Subject,
+        Body = d.Body,
+        RouteReason = d.RouteReason
     };
 }

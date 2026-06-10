@@ -42,7 +42,7 @@ public class FormRepository : IDatabaseBusinessRepository<Form>, IFormRepository
                 FormStatusId = form.FormStatusId,
                 FormStatusName = formStatus.FormStatusName,
                 StudentId = form.StudentId,
-                AdvisorId = form.AdvisorId,
+                StudentAdvisor = form.StudentAdvisor,
                 StudentNumber = form.StudentNumber,
                 StudentName = form.StudentName,
                 StudentSurname = form.StudentSurname,
@@ -55,7 +55,10 @@ public class FormRepository : IDatabaseBusinessRepository<Form>, IFormRepository
                 FormDate = form.FormDate,
                 ScholarshipStatus = form.ScholarshipStatus,
                 StudentAddress = form.StudentAddress,
-                StudentSignature = form.StudentSignature
+                StudentSignature = form.StudentSignature,
+                Subject = form.Subject,
+                Body = form.Body,
+                RouteReason = form.RouteReason
             };
     }
 }

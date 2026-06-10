@@ -19,6 +19,10 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseService<FormContentPrecursorDto, FormContentPrecursor>, FormContentPrecursorService>();
         services.AddScoped<IDatabaseService<FormReviewDto, FormReview>, FormReviewService>();
         services.AddScoped<IDatabaseService<FormStatusDto, FormStatus>, FormStatusService>();
+        services.AddScoped<IDatabaseService<FormEkSinav44cDetailsDto, FormEkSinav44cDetails>, FormEkSinav44cDetailsService>();
+        services.AddScoped<IDatabaseService<FormEkSinav44cCoursesDto, FormEkSinav44cCourses>, FormEkSinav44cCoursesService>();
+        services.AddScoped<IDatabaseService<FormMazeretSinaviFinalDetailsDto, FormMazeretSinaviFinalDetails>, FormMazeretSinaviFinalDetailsService>();
+        services.AddScoped<IDatabaseService<FormIlisikKesmeDetailsDto, FormIlisikKesmeDetails>, FormIlisikKesmeDetailsService>();
     }
 
     public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
@@ -32,5 +36,9 @@ public static class ServiceRegistration
         services.AddScoped<IDatabaseRepository<FormContentPrecursor>, FormContentPrecursorRepository>();
         services.AddScoped<IDatabaseRepository<FormReview>, FormReviewRepository>();
         services.AddScoped<IDatabaseRepository<FormStatus>, FormStatusRepository>();
-    }   
+        services.AddScoped<IDatabaseRepository<FormEkSinav44cDetails>, FormEkSinav44cDetailsRepository>();
+        services.AddScoped<IDatabaseRepository<FormEkSinav44cCourses>, FormEkSinav44cCoursesRepository>();
+        services.AddScoped<IDatabaseRepository<FormMazeretSinaviFinalDetails>, FormMazeretSinaviFinalDetailsRepository>();
+        services.AddScoped<IDatabaseRepository<FormIlisikKesmeDetails>, FormIlisikKesmeDetailsRepository>();
+    }
 }

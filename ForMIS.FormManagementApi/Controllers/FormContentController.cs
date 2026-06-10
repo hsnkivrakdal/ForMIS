@@ -58,8 +58,8 @@ namespace ForMIS.FormManagementApi.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
                 
-                await _service.AddAsync(model);
-                return Ok();
+                var created = await _service.AddAsync(model);
+                return Ok(created);
             }
             catch (Exception e)
             {
