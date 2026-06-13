@@ -1,3 +1,6 @@
+using ErtisAuth.Core.Models.Roles;
+using ErtisAuth.Extensions.Authorization.Annotations;
+using ErtisAuth.Identity.Attributes;
 using ForMIS.Application.DTOs;
 using ForMIS.Application.Interfaces;
 using ForMIS.Domain.Entities;
@@ -5,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ForMIS.FormManagementApi.Controllers
 {
+    [Authorized]
+    [RbacResource("formeksinav44ccourses")]
     [Route("api/[controller]")]
     [ApiController]
     public class FormEkSinav44cCoursesController : ControllerBase
@@ -17,6 +22,7 @@ namespace ForMIS.FormManagementApi.Controllers
         }
 
         [HttpGet]
+        [RbacAction(Rbac.CrudActions.Read)]
         public async Task<IActionResult> Get()
         {
             try
@@ -30,6 +36,8 @@ namespace ForMIS.FormManagementApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [RbacAction(Rbac.CrudActions.Read)]
+        [RbacObject("{id}")]
         public async Task<IActionResult> Get(int? id)
         {
             try
@@ -51,6 +59,7 @@ namespace ForMIS.FormManagementApi.Controllers
         }
 
         [HttpPost]
+        [RbacAction(Rbac.CrudActions.Create)]
         public async Task<IActionResult> Post([FromBody] FormEkSinav44cCoursesDto model)
         {
             try
@@ -68,6 +77,7 @@ namespace ForMIS.FormManagementApi.Controllers
         }
 
         [HttpPut]
+        [RbacAction(Rbac.CrudActions.Update)]
         public async Task<IActionResult> Put([FromBody] FormEkSinav44cCoursesDto model)
         {
             try
@@ -85,6 +95,8 @@ namespace ForMIS.FormManagementApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [RbacAction(Rbac.CrudActions.Delete)]
+        [RbacObject("{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             try

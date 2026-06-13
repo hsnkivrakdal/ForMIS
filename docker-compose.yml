@@ -37,6 +37,8 @@
       - sqlserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+    volumes:
+      - ./uploads:/app/uploads
     networks:
       - formis-network
 

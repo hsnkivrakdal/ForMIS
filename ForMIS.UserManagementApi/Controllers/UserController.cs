@@ -1,3 +1,6 @@
+using ErtisAuth.Core.Models.Roles;
+using ErtisAuth.Extensions.Authorization.Annotations;
+using ErtisAuth.Identity.Attributes;
 using ForMIS.Application.DTOs;
 using ForMIS.Application.Interfaces;
 using ForMIS.Domain.Entities;
@@ -6,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ForMIS.UserManagementApi.Controllers
 {
+    [Authorized]
+    [RbacResource("user")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -18,6 +23,7 @@ namespace ForMIS.UserManagementApi.Controllers
         }
 
         [HttpGet]
+        [RbacAction(Rbac.CrudActions.Read)]
         public async Task<IActionResult> Get()
         {
             try
@@ -31,6 +37,8 @@ namespace ForMIS.UserManagementApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [RbacAction(Rbac.CrudActions.Read)]
+        [RbacObject("{id}")]
         public async Task<IActionResult> Get(int? id)
         {
             try
@@ -52,6 +60,7 @@ namespace ForMIS.UserManagementApi.Controllers
         }
 
         [HttpPost]
+        [RbacAction(Rbac.CrudActions.Create)]
         public async Task<IActionResult> Post([FromBody] UserDto model)
         {
             try
@@ -69,6 +78,7 @@ namespace ForMIS.UserManagementApi.Controllers
         }
 
         [HttpPut]
+        [RbacAction(Rbac.CrudActions.Update)]
         public async Task<IActionResult> Put([FromBody] UserDto model)
         {
             try
@@ -86,6 +96,8 @@ namespace ForMIS.UserManagementApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [RbacAction(Rbac.CrudActions.Delete)]
+        [RbacObject("{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             try
